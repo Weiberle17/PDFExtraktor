@@ -1,8 +1,13 @@
 #!./venv/bin/python3
 
-from pypdf import PdfReader
+from io import StringIO
 
-reader = PdfReader("../PA2/Formulare/Elternzeit Antrag Beschäftigte - Max Mustermann.pdf")
+from io import StringIO
+from pdfminer.high_level import extract_text_to_fp
+from pdfminer.layout import LAParams
 
-for page in reader.pages:
-  print(page.extract_text())
+output_string = StringIO()
+with open('../PA2/Formulare/Elternzeit Antrag Beschäftigte - Max Mustermann.pdf', 'rb') as fin:
+    extract_text_to_fp(fin, output_string, laparams=LAParams(), output_type='xml', codec=None)
+
+print(output_string.getvalue())
