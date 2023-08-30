@@ -1,7 +1,7 @@
 #!./venv/bin/python3
 
-import sys
 import argparse
+import xml.etree.ElementTree as ET
 from io import StringIO
 from pdfminer.high_level import extract_text_to_fp
 from pdfminer.layout import LAParams
@@ -23,7 +23,28 @@ with open(args.Eingabedatei, 'rb') as fin:
 # Parsing string into Sections to turn letters into words
 parsed_string = [dl+e for e in output_string.getvalue().split(dl) if e]
 
-for section in parsed_string:
-  print("Section:")
-  print(section)
-  print()
+root_input = ET.fromstring(output_string.getvalue())
+root = ET.Element(root_input.tag)
+for pg in root_input:
+  page = ET.SubElement(root, pg.tag)
+  page.attrib = pg.attrib
+  for tb in pg:
+    textbox = ET.SubElement(page, tb.tag)
+    textbox.attrib = tb.attrib
+    text = ''
+    for char in tb.iter('text'):
+      text += str(char.text)
+    textbox.text = 'ü'
+tree = ET.ElementTree(root)
+tree.write('test.xml')
+
+# print(root_input.tag)
+# print(root_input.attrib)
+# result = ''
+# for textbox in root_input.iter('textbox'):
+#   result += str(textbox.get('id'))
+#   result += ": "
+#   result += str(textbox)
+#   for char in textbox.iter('text'):
+#     result += str(char.text)
+# print(result)
