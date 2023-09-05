@@ -34,7 +34,7 @@ for pg in root_input:
     text = ''
     for char in tb.iter('text'):
       text += str(char.text)
-    textbox.text = 'ü'
+    textbox.text = text
 tree = ET.ElementTree(root)
 tree.write('test.xml')
 
