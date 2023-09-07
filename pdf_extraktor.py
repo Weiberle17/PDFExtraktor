@@ -19,6 +19,17 @@ with open(args.Eingabedatei, 'rb') as fin:
 
 AusgabeDatei = str(args.Eingabedatei).split('/')[-1].split('.')[0] + '.xml'
 
+# Remove first line to allow ET.parse to work properly
+test = output_string.getvalue().split('\n')
+test2 = StringIO()
+test2.writelines('\n'.join(test[1:]))
+test2.seek(0)
+
+tree = ET.parse(test2)
+root = tree.getroot()
+
+print(root[1][0][0].text)
+
 f = open(AusgabeDatei, "w")
 f.write(output_string.getvalue())
 f.close()
