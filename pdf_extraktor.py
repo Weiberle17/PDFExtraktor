@@ -34,6 +34,7 @@ tree_string.seek(0)
 tree = ET.parse(tree_string)
 root = tree.getroot()
 
+# Einzelne Textstellen können so angesprochen und verändert werden
 root[0][0][0].text = 'hallo'
 print(root[0][0][0].text)
 
