@@ -2,6 +2,7 @@
 
 import argparse
 import xml.etree.ElementTree as ET
+from xml.dom import minidom
 from io import StringIO
 from pdfminer.high_level import extract_text_to_fp
 from pdfminer.layout import LAParams
@@ -19,17 +20,23 @@ with open(args.Eingabedatei, 'rb') as fin:
 
 AusgabeDatei = str(args.Eingabedatei).split('/')[-1].split('.')[0] + '.xml'
 
-# Remove first line to allow ET.parse to work properly
-test = output_string.getvalue().split('\n')
-test2 = StringIO()
-test2.writelines('\n'.join(test[1:]))
-test2.seek(0)
+def prettify(elem):
+  rough_string = ET.tostring(elem, 'utf-8')
+  reparsed = minidom.parseString(rough_string)
+  return reparsed.toprettyxml(indent="  ")
 
-tree = ET.parse(test2)
+# Remove first line to allow ET.parse to work properly
+lines = output_string.getvalue().split('\n')
+tree_string = StringIO()
+tree_string.writelines(''.join(lines[1:]))
+tree_string.seek(0)
+
+tree = ET.parse(tree_string)
 root = tree.getroot()
 
-print(root[1][0][0].text)
+root[0][0][0].text = 'hallo'
+print(root[0][0][0].text)
 
 f = open(AusgabeDatei, "w")
-f.write(output_string.getvalue())
+f.write(prettify(root))
 f.close()
