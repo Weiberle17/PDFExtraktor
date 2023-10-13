@@ -1,8 +1,11 @@
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+import re
+
+# TODO: Create custom exceptions
 
 def getIndexe(input_string):
-  indexe = [int(index) for index in str(input_string) if index.isdigit()]
+  indexe = [int(match.group()) for match in re.finditer(r'\d+', input_string)]
   return indexe
 
 def prettify(elem):
