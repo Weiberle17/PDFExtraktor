@@ -1,4 +1,18 @@
-# TODO: Finish
-def output(file_name, input_tree):
-  AusgabeDatei = file_name.split('/')[-1].split('.')[0] + '.xml'
-  print(AusgabeDatei)
+#!./venv/bin/python3
+
+import json
+import xmltodict
+
+def output(file_name, input_tree, output_type):
+  AusgabeDatei = ""
+  output = ""
+  if output_type == "xml":
+    AusgabeDatei = "output/" + file_name.split('/')[-1].split('.')[0] + '.xml'
+    output = input_tree
+  elif output_type == "json":
+    AusgabeDatei = "output/" + file_name.split('/')[-1].split('.')[0] + '.json'
+    output = json.dumps(xmltodict.parse(input_tree), indent=2)
+  f = open(AusgabeDatei, "w")
+  f.write(str(output))
+  f.close()
+  print("Datei erfolgreich erstellt")
