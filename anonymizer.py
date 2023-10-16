@@ -1,4 +1,5 @@
 import util
+from util import FormException
 
 import xml.etree.ElementTree as ET
 
