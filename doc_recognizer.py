@@ -1,5 +1,6 @@
 import tree_builder
 import util
+from util import DocumentTypeRecognitionException, MissingConfigException
 
 import xml.etree.ElementTree as ET
 from io import StringIO
@@ -15,9 +16,9 @@ def recognize_doc(input_tree):
       if str(formular.text) in str(input_tree[index0][index1][index2].text):
         return formular.tag
     else:
-      return "Keine Konfiguration für dieses Formular gefunden"
+      raise MissingConfigException()
   else:
     if 1 == 1:
       return "Handbuch"
     else:
-      return "Dokumentart nicht erkannt"
+      raise DocumentTypeRecognitionException()
