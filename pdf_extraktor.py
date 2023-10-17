@@ -5,7 +5,7 @@ import tree_builder
 import doc_recognizer
 import anonymizer
 import output_handler
-from util import FormException, MissingConfigException, DocumentTypeRecognitionException
+from exceptions import FormException, MissingConfigException, DocumentTypeRecognitionException
 import sys
 
 try:

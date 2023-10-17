@@ -1,6 +1,6 @@
 import tree_builder
 import util
-from util import DocumentTypeRecognitionException, MissingConfigException
+from exceptions import DocumentTypeRecognitionException, MissingConfigException
 
 import xml.etree.ElementTree as ET
 from io import StringIO
