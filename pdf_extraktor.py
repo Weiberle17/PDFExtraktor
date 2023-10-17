@@ -14,5 +14,6 @@ try:
   anonymized_tree = anonymizer.anonymize(doc_type, input_tree)
   output_handler.output(input_handler.args.Eingabedatei, anonymized_tree, input_handler.args.Ausgabeformat)
 except (MissingConfigException, DocumentTypeRecognitionException, FormException) as e:
-  print(f"Error: {e.message}")
+  # Make "Error:" red and the rest the default color
+  print(f"\033[91mError:\033[0m {e.message}")
   sys.exit(1)
