@@ -1,5 +1,4 @@
-import util
-from exceptions import FormException
+from modules import util, exceptions
 
 import xml.etree.ElementTree as ET
 
@@ -11,6 +10,6 @@ def anonymize(file_type, input_tree):
     try:
       input_tree[i0][i1][i2].text = anonymize_file.find(str(tag.tag)).text
     except IndexError:
-      raise FormException()
+      raise exceptions.FormException()
 
   return util.prettify(input_tree)

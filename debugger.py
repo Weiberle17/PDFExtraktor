@@ -1,9 +1,6 @@
 #!./venv/bin/python3
 
-import tree_builder
-import doc_recognizer
-import anonymizer
-import util
+from modules import tree_builder, doc_recognizer, anonymizer, util
 
 import argparse
 import xml.etree.ElementTree as ET
