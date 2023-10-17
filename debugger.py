@@ -9,7 +9,6 @@ import argparse
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-# TODO: Add more options later on
 parser = argparse.ArgumentParser(prog='pdf_extraktor', description='Debug module for pdf_extraktor')
 parser.add_argument('Eingabedatei')
 parser.add_argument('-dt', '--doc_type', action='store_true', help='Display recognized doc type')
