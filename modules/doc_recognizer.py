@@ -13,8 +13,7 @@ def recognize_doc(input_tree):
       index0, index1, index2 = util.getIndexe(formular.get('index'))
       if str(formular.text) in str(input_tree[index0][index1][index2].text):
         return formular.tag
-    else:
-      raise exceptions.MissingConfigException()
+    raise exceptions.MissingConfigException()
   else:
     if 1 == 1:
       return "Handbuch"
