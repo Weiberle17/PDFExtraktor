@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<!-- Bitte jeweils das Wort 'index' durch den Index der betroffenen Stelle ersetzen. -->
+<configuration>
+  <vor_nachname>[0][7][0]</vor_nachname>
+  
+  <plz_ort>[0][11][0]</plz_ort>
+  
+  <str_hnr>[0][11][1]</str_hnr>
+</configuration>

@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <files>
   <formulars id="0">
-    <Elternzeit index="[0][0][0]">Antrag Elternzeit</Elternzeit>
-    <Heimarbeitsplatz index="[0][0][1]">Bewilligung eines Heimarbeitsplatzes </Heimarbeitsplatz>
+    <Elternzeit index="[0][0][0]" textboxes="72">Antrag Elternzeit</Elternzeit>
+    <Heimarbeitsplatz index="[0][0][1]" textboxes="83">Bewilligung eines Heimarbeitsplatzes </Heimarbeitsplatz>
   </formulars>
   <handbuecher>
-    <Aktendruck index="[0][0][1]">enaio® Aktendruck </Aktendruck>
+    <Aktendruck index="[0][0][1]" textboxes="697">enaio® Aktendruck </Aktendruck>
   </handbuecher>
   <andere>
   </andere>
