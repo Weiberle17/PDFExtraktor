@@ -23,7 +23,7 @@ if args.doc_type:
 
 if args.raw_extraction:
   tree = tree_builder.build_tree(args.Eingabedatei)
-  f = open("debug/ausgabe.xml", "w")
+  f = open("debug/ausgabe.xml", "w", encoding="utf8")
   f.write(util.prettify(tree))
   print("Written to debug/ausgabe.xml")
   f.close()
@@ -32,7 +32,7 @@ if args.anonymize:
   tree = tree_builder.build_tree(args.Eingabedatei)
   doc_type = doc_recognizer.recognize_doc(tree)
   anonymized = anonymizer.anonymize(doc_type, tree)
-  f = open("debug/ausgabe.xml", "w")
+  f = open("debug/ausgabe.xml", "w", encoding="utf8")
   f.write(anonymized)
   print("Written to debug/ausgabe.xml")
   f.close()
