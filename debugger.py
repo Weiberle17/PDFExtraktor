@@ -1,5 +1,6 @@
 #!./venv/bin/python3
 
+import os
 from modules import tree_builder, doc_recognizer, anonymizer, util
 
 import argparse
@@ -12,6 +13,9 @@ parser.add_argument('-dt', '--doc_type', action='store_true', help='Display reco
 parser.add_argument('-re', '--raw_extraction', action='store_true', help='Get raw extraction - written to debug/ausgabe.xml')
 parser.add_argument('-a', '--anonymize', action='store_true', help='Get anonymized data - written to debug/ausgabe.xml')
 args = parser.parse_args()
+
+if not os.path.exists("debug/"):
+  os.makedirs("debug/")
 
 if args.doc_type:
   tree = tree_builder.build_tree(args.Eingabedatei)

@@ -7,6 +7,8 @@ import os
 def output(file_name, input_tree, output_type):
   AusgabeDatei = ""
   output = ""
+  if not os.path.exists("output/"):
+    os.makedirs("output/")
   if output_type == "xml":
     AusgabeDatei = "output/" + file_name.split(os.sep)[-1].split('.')[0] + '.xml'
     output = input_tree
