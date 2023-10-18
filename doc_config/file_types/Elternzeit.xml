@@ -1,19 +1,22 @@
 <?xml version="1.0" ?>
 <!-- Bitte jeweils das Wort 'index' durch den Index der betroffenen Stelle ersetzen. -->
 <configuration>
-  <!-- Bitte die folgende Zeile für jedes Vorkommen eines Nachnamens kopieren -->
   <nachname>[0][12][1]</nachname>
-  <nachname>[0][17][1]</nachname>
-  <!-- Bitte die folgende Zeile für jedes Vorkommen eines Vornamens kopieren -->
-  <vorname>index</vorname>
-  <!-- Bitte die folgende Zeile für jedes Vorkommen einer Postleitzahl  kopieren -->
-  <plz>index</plz>
-  <!-- Bitte die folgende Zeile für jedes Vorkommen einer Straße kopieren -->
-  <strasse>index</strasse>
-  <!-- Bitte die folgende Zeile für jedes Vorkommen einer Hausnummer kopieren -->
-  <hausnr>index</hausnr>
-  <!-- Bitte die folgende Zeile für jedes Vorkommen einer Adresse kopieren -->
-  <adresse>index</adresse>
-  <!-- Bitte die folgende Zeile für jedes weitere Vorkommen von personenbezogenen Daten -->
-  <andere>index</andere>
+  <nachname>[0][14][1]</nachname>
+  <nachname>[0][16][1]</nachname>
+
+  <vorname>[0][15][1]</vorname>
+  <vorname>[0][17][1]</vorname>
+  
+  <plz>[0][14][3]</plz>
+  
+  <str_hnr>[0][12][3]</str_hnr>
+  
+  <ort>[0][15][3]</ort>
+
+  <telefonnr>[0][12][5]</telefonnr>
+
+  <email>[0][14][5]</email>
+
+  <gebdat>[0][18][1]</gebdat>
 </configuration>
